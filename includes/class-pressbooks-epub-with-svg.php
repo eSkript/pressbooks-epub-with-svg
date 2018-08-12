@@ -172,10 +172,10 @@ class Pressbooks_Epub_With_Svg {
 
 		//$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		//$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
-		$this->loader->add_filter( 'pb_epub201_fetchAndSaveUniqueImage_filename', $plugin_public, 'filename');
-		$this->loader->add_filter( 'pb_is_valid_image_extension', $plugin_public, 'valid_extension');
-		$this->loader->add_filter( 'pb_is_valid_image_type', $plugin_public, 'valid_type');
-		$this->loader->add_filter( 'pb_epub201_fetchAndSaveUniqueImage_compress', $plugin_public, 'should_compress');
+		$this->loader->add_filter( 'pb_epub201_fetchAndSaveUniqueImage_filename', $plugin_public, 'filter_pb_epub201_fetchAndSaveUniqueImage_filename');
+		$this->loader->add_filter( 'pb_is_valid_image_extension', $plugin_public, 'filter_pb_is_valid_image_extension');
+		$this->loader->add_filter( 'pb_is_valid_image_type', $plugin_public, 'filter_pb_is_valid_image_type');
+		$this->loader->add_filter( 'pb_epub201_fetchAndSaveUniqueImage_compress', $plugin_public, 'filter_pb_epub201_fetchAndSaveUniqueImage_compress');
 
 	}
 

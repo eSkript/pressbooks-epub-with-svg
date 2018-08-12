@@ -109,7 +109,7 @@ class Pressbooks_Epub_With_Svg_Public {
 	 * @param	string	$ori_filename	the original filename
 	 * @param	object	$response	the response
 	 */
-	public function filename($filename, $ori_filename, $response) {
+	public function filter_pb_epub201_fetchAndSaveUniqueImage_filename($filename, $ori_filename, $response) {
 		if ($response['headers']['content-type'] == 'image/svg+xml') {
 			$filename = md5( array_pop( $ori_filename ) );
 			return $filename .'.svg';
@@ -126,7 +126,7 @@ class Pressbooks_Epub_With_Svg_Public {
 	 * @param	boolean	$valid	is valid extension
 	 * @param	string	$extension	the extensions
 	 */
-	public function valid_extension($valid, $extension) {
+	public function filter_pb_is_valid_image_extension($valid, $extension) {
 		return $valid || 'svg' === substr($extension, 0, 3);
 	}
 
@@ -139,7 +139,7 @@ class Pressbooks_Epub_With_Svg_Public {
 	 * @param string $type the type of the image
 	 * @param file	$file	the file
 	 */
-	public function valid_type($valid, $type, $file) {
+	public function filter_pb_is_valid_image_type($valid, $type, $file) {
 		return $valid || 'image/svg+xml' === mime_content_type($file);
 	}
 
@@ -151,7 +151,7 @@ class Pressbooks_Epub_With_Svg_Public {
 	 * @param boolean $compress should it be compressed
 	 * @param file $tmp_file the temp file
 	 */
-	public function should_compress($compress, $tmp_file) {
+	public function filter_pb_epub201_fetchAndSaveUniqueImage_compress($compress, $tmp_file) {
 		return $compress && 'image/svg+xml' != mime_content_type($tmp_file);
 	}
 
