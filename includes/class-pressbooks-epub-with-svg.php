@@ -67,8 +67,8 @@ class Pressbooks_Epub_With_Svg {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		if ( defined( 'PLUGIN_NAME_VERSION' ) ) {
-			$this->version = PLUGIN_NAME_VERSION;
+		if ( defined( 'PRESSBOOKS_EPUB_WITH_SVG_VERSION' ) ) {
+			$this->version = PRESSBOOKS_EPUB_WITH_SVG_VERSION;
 		} else {
 			$this->version = '1.0.0';
 		}
@@ -172,10 +172,9 @@ class Pressbooks_Epub_With_Svg {
 
 		//$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		//$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
-		$this->loader->add_filter( 'pb_epub201_fetchAndSaveUniqueImage_filename', $plugin_public, 'filter_pb_epub201_fetchAndSaveUniqueImage_filename');
-		$this->loader->add_filter( 'pb_is_valid_image_extension', $plugin_public, 'filter_pb_is_valid_image_extension');
-		$this->loader->add_filter( 'pb_is_valid_image_type', $plugin_public, 'filter_pb_is_valid_image_type');
-		$this->loader->add_filter( 'pb_epub201_fetchAndSaveUniqueImage_compress', $plugin_public, 'filter_pb_epub201_fetchAndSaveUniqueImage_compress');
+		$this->loader->add_filter( 'pb_is_valid_image_extension', $plugin_public, 'filter_pb_is_valid_image_extension', 10, 2);
+		$this->loader->add_filter( 'pb_is_valid_image_type', $plugin_public, 'filter_pb_is_valid_image_type', 10, 3);
+		$this->loader->add_filter( 'pb_epub201_fetchAndSaveUniqueImage_compress', $plugin_public, 'filter_pb_epub201_fetchAndSaveUniqueImage_compress', 10, 2);
 
 	}
 
