@@ -146,7 +146,7 @@ class Pressbooks_Epub_With_Svg_Public {
 	/**
 	 * Filter should the image be compressed
 	 * 
-	 * @hook	pb_epub201_fetchAndSaveUniqueImage_compress
+	 * @hook	pb_epub201_fetchandsaveuniqueimage_compress
 	 * @since    1.0.0
 	 * @param boolean $compress should it be compressed
 	 * @param file $tmp_file the temp file
